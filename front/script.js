@@ -5,7 +5,7 @@ $(function () {
   $(".board> button").on("click", makeMove);
 
   socket.on("moveDone", function (data) {
-
+ 
     initTheNamePlayer(data);
 
     $("#" + data.position).text(data.name);

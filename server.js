@@ -44,7 +44,7 @@ io.sockets.on("connection", (socket) => {
         socket.emit("moveDone", data);
         getOpSocket(socket).emit("moveDone", data);
     });
-
+ 
     socket.on("disconnect", function () {
         if (getOpSocket(socket)) {
             getOpSocket(socket).emit("left");
