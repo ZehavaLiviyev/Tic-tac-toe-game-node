@@ -1,0 +1,30 @@
+body {
+    background-color: rgb(230, 224, 224);
+    text-align: center;
+}
+.board {
+    margin: auto;
+    width: 350px;
+}
+.board button {
+    background-color: rgba(122, 115, 115, 0.363);
+    height: 100px;
+    width: 100px;
+    margin: 0px;
+    padding: 10px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 3em;
+}
+
+h1{
+  color: #ab451e;  
+  font-family: cursive;
+}
+
+#notice{
+    color: #ab451e;  
+    font-family: cursive;
+    font-size: x-large;
+}

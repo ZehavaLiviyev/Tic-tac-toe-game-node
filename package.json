@@ -1,0 +1,23 @@
+{
+  "name": "tic-tac-toe-game-node",
+  "version": "1.0.0",
+  "description": "tictactoe",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "devstart": "nodemon server.js"
+  },
+  "author": "Zehava",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "socket.io": "^4.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.6",
+    "utf-8-validate": "^5.0.8"
+  }
+}
