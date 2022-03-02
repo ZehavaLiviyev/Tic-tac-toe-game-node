@@ -1,11 +1,14 @@
 var socket = io();
 var name;
+var falg;
 $(function () {
   $(".board button").attr("disabled", true);
   $(".board> button").on("click", makeMove);
+  $("#restB").attr("disabled", true);
+  $("#restB").on("click", restBoard);
 
   socket.on("moveDone", function (data) {
- 
+    $("#restB").attr("disabled", true);
     initTheNamePlayer(data);
 
     $("#" + data.position).text(data.name);
@@ -20,12 +23,14 @@ $(function () {
     if (!isGameOver()) {
       if (gameTied()) {
         $("#notice").text("Game Drawn!");
+        $("#restB").removeAttr("disabled");
         $(".board button").attr("disabled", true);
       } else {
         renderTurnMessage();
       }
 
     } else {
+      $("#restB").removeAttr("disabled");
       $("#name_").text("Game Over ! ");
 
       if (myTurn) {
@@ -37,9 +42,7 @@ $(function () {
         $("#notice").css({ 'color': 'blue', 'font-size': '150%' });
         if (data.name == "X") { $("#notice").text("YOU WON ! O lost !"); }
         else { $("#notice").text("YOU WON ! X lost !"); }
-
       }
-
       $(".board button").attr("disabled", true);
     }
   });
@@ -63,9 +66,6 @@ $(function () {
     $("#notice").text("There is no longer an opponent in the game.");
     $(".board button").attr("disabled", true);
   });
-
-
-
 });
 
 function initTheNamePlayer(data) {
@@ -80,6 +80,17 @@ function restBoard() {
   $(".board button").each(function () {
     $(this).text("");
   });
+
+  $("#notice").css({ 'color': '#ab451e', 'font-size': '150%' });
+
+
+  if (!myTurn) {
+    $("#notice").text("Your opponent's turn");
+    $(".board button").attr("disabled", true);
+  } else {
+    $("#notice").text("Your turn.");
+    $(".board button").removeAttr("disabled");
+  }
 }
 
 function getBoardState() {
@@ -144,6 +155,7 @@ function renderTurnMessage() {
 }
 
 function makeMove(e) {
+  $("#restB").attr("disabled", true);
   e.preventDefault();
 
   if (!myTurn) {
