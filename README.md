@@ -3,8 +3,8 @@
 
 ### To run the app, please enter the following commands in this order:
 
-
-   1. node server.js
+       1. npm install
+       
     
 
 
