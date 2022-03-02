@@ -3,7 +3,8 @@
 
 ### To run the app, please enter the following commands in this order:
 
-node server.js
+
+   1. node server.js
     
 
 
